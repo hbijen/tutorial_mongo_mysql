@@ -6,6 +6,7 @@
 	import mongoLogo from '$lib/images/MongoDB_SpringGreen.png';
 	import mysqlLogo from '$lib/images/includes-mysql-125x64.png';
 
+	import About from './about.svelte';
 
 	let isDark = false;
 	let opened = false;
@@ -36,6 +37,10 @@
 	} from 'carbon-components-svelte';
 
 	let isSideNavOpen = false;
+	/**
+	 * @type {About}
+	 */
+	let aboutRef
 </script>
 
 <svelte:head>
@@ -68,13 +73,14 @@
 				<img src={logo} alt="SvelteKit" />
 			</a>
 	
-			<a href="https://www.mysql.com/">
-				<img src={mysqlLogo} alt="MySQL" />
-			</a>
-	
 			<a href="https://www.mongodb.com/">
 				<img src={mongoLogo} alt="MongoDB" />
 			</a>
+
+			<!-- <a href="https://www.mysql.com/">
+				<img src={mysqlLogo} alt="MySQL" />
+			</a> -->
+
 		</div>
 	</div>
 </Header>
@@ -92,7 +98,7 @@
 			<SideNavMenuItem href="/language" text="List" />
 		</SideNavMenu>
 		<SideNavDivider />
-		<SideNavLink text="About" />
+		<SideNavLink text="About" on:click={() => aboutRef.openModal()} />
 	</SideNavItems>
 </SideNav>
 
@@ -106,6 +112,7 @@
 	</Grid>
 </Content>
 
+<About bind:this={aboutRef}/>
 
 <style>
 	.header {
