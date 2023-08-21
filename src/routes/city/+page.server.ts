@@ -11,7 +11,7 @@ async function mongoLoad() {
   try {
     const db = mongoClient.db("world")
 
-    //FIXME 5: get the first 10 cities
+    //FIXME 6: get the first 10 cities
     let results = await db.collection("country_one").aggregate([
 
     ]).toArray()
@@ -22,7 +22,7 @@ async function mongoLoad() {
 
     console.log("results ", results)
 
-    //FIXME 6: return the total count of all the cities
+    //FIXME 7: return the total count of all the cities
     var total_count = 100; 
     let count_result = await db.collection("country_one").aggregate([
 

@@ -18,7 +18,7 @@ export async function GET(request: RequestEvent) {
 
     const db = mongoClient.db("world")
 
-    //FIXME 7: Fix the pagination for the city
+    //FIXME 8: Fix the pagination for the city
     let results = await db.collection("country_one").aggregate([
 
     ]).toArray()
