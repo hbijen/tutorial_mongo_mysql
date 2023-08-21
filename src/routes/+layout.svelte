@@ -97,6 +97,9 @@
 		<SideNavMenu text="Language">
 			<SideNavMenuItem href="/language" text="List" />
 		</SideNavMenu>
+		<SideNavMenu text="Reports">
+			<SideNavMenuItem href="/reports/population" text="Population Bar" />
+		</SideNavMenu>		
 		<SideNavDivider />
 		<SideNavLink text="About" on:click={() => aboutRef.openModal()} />
 	</SideNavItems>
