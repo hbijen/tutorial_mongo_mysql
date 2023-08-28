@@ -99,6 +99,7 @@
 		</SideNavMenu>
 		<SideNavMenu text="Reports">
 			<SideNavMenuItem href="/reports/population" text="Population Bar" />
+			<SideNavMenuItem href="/reports/language" text="Language Pie" />
 		</SideNavMenu>		
 		<SideNavDivider />
 		<SideNavLink text="About" on:click={() => aboutRef.openModal()} />

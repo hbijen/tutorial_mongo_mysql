@@ -3,7 +3,7 @@
 
 	export let data: any;
 	let page = 1;
-	let pageSize = 15;
+	let pageSize = 10;
 	let sortKey = "";
 	let sortDirection = "";
 

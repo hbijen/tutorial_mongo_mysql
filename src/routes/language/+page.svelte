@@ -1,6 +1,3 @@
-<svelte:head>
-	<title>city</title>
-</svelte:head>
 
 <div class="text-column">
 
