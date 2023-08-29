@@ -14,7 +14,7 @@ async function mongoLoad() {
     // 1. return only the name and id
     // 2. sort it by name ascending
     let results = await db.collection("country_one")
-      .find().toArray()
+      .find({}).limit(1).toArray()
 
     console.log("results ", results)
 
