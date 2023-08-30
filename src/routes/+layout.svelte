@@ -101,7 +101,8 @@
 			<SideNavMenuItem href="/reports/population" text="Population Bar" />
 			<SideNavMenuItem href="/reports/language" text="Language Pie" />
 			<SideNavMenuItem href="/reports/country-language" text="Top Country Language" />
-			<SideNavMenuItem href="/reports/continent-population" text="Continent Summary" />
+			<SideNavMenuItem href="/reports/continent-population" text="Continent Population" />
+			<SideNavMenuItem href="/reports/continent-summary" text="Continent Summary" />
 		</SideNavMenu>		
 		<SideNavDivider />
 		<SideNavLink text="About" on:click={() => aboutRef.openModal()} />
