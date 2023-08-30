@@ -100,6 +100,8 @@
 		<SideNavMenu text="Reports">
 			<SideNavMenuItem href="/reports/population" text="Population Bar" />
 			<SideNavMenuItem href="/reports/language" text="Language Pie" />
+			<SideNavMenuItem href="/reports/country-language" text="Top Country Language" />
+			<SideNavMenuItem href="/reports/continent-population" text="Continent Summary" />
 		</SideNavMenu>		
 		<SideNavDivider />
 		<SideNavLink text="About" on:click={() => aboutRef.openModal()} />

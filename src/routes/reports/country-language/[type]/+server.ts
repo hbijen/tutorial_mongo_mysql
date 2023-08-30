@@ -1,14 +1,5 @@
 import { json, type RequestEvent } from "@sveltejs/kit";
 import mongoClient from "$lib/db/mongo";
-import { ObjectId } from "mongodb";
-
-const projection = {
-  Name: 1,
-  Continent: 1,
-  Population: 1,
-  SurfaceArea: 1
-}
-
 
 export async function GET(request: RequestEvent) {
   let type = request.params.type
