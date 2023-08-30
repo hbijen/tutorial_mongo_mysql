@@ -2,9 +2,7 @@
 	import '@carbon/styles/css/styles.css';
 	import '@carbon/charts-svelte/styles.css';
 	import { PieChart, type PieChartOptions } from '@carbon/charts-svelte';
-	import {
-		Dropdown,
-	} from 'carbon-components-svelte';
+	import { Dropdown } from 'carbon-components-svelte';
 
 	export let data: any;
 	let value: string;
@@ -18,27 +16,27 @@
 	});
 
 	function selected(evt: any) {
-		console.log("evt.detail", evt.detail)
-		let name = evt.detail.selectedItem.text
+		console.log('evt.detail', evt.detail);
+		let name = evt.detail.selectedItem.text;
 
 		fetch(`/reports/language`, {
-			method: "POST",
-			body: JSON.stringify({countryName: name})
+			method: 'POST',
+			body: JSON.stringify({ countryName: name })
 		})
-				.then((r) => r.json())
-				.then((r) => {
-					languages = r
-                    console.log('languages ', languages)
-                })
-				.catch((error) => {
-					console.error('Error fetching data:', error);
-				});		
+			.then((r) => r.json())
+			.then((r) => {
+				languages = r;
+				console.log('languages ', languages);
+			})
+			.catch((error) => {
+				console.error('Error fetching data:', error);
+			});
 	}
 </script>
 
 <h4>A simple language pie chart</h4>
 {#if countries.length > 0}
-	<Dropdown titleText="Select a Country" selectedId="0" items={countries} on:select={selected}/>
+	<Dropdown titleText="Select a Country" selectedId="0" items={countries} on:select={selected} />
 {/if}
 
 <PieChart data={languages} {options} />
