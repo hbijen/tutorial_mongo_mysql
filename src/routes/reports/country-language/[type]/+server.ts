@@ -24,7 +24,10 @@ async function countriesByLanguages() {
 async function languagesByCountries() {
   const db = mongoClient.db("world")
 
-  //FIXME 21: Fix the pagination for the city
+  //FIXME 21: get all the language records where 
+  // 1. a language spoken in atleast 10 countries 
+  // 2. Sort the records by number of countries in ascending order
+
   let results = await db.collection("country_one").aggregate(
     [
     ]

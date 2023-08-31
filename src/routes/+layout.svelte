@@ -20,16 +20,12 @@
 
 	import {
 		Header,
-		HeaderNav,
-		HeaderNavItem,
-		HeaderNavMenu,
 		SideNav,
 		SideNavItems,
 		SideNavMenu,
 		SideNavMenuItem,
 		SideNavLink,
 		SideNavDivider,
-		SkipToContent,
 		Content,
 		Grid,
 		Row,
@@ -46,17 +42,6 @@
 <svelte:head>
 	<title>Demo</title>
 </svelte:head>
-
-<!-- <AppShell>
-	<Navbar slot="navbar" hidden={!opened} width={{sm:200, lg:260, base: 100}}>
-		<NavContent />
-	</Navbar>
-	<Header slot="header" height="60">
-		<HeadContent />
-	</Header>
-
-	<slot>This is the main content</slot>
-</AppShell> -->
 
 <Header bind:isSideNavOpen >
 	<div class="header">
@@ -104,6 +89,7 @@
 			<SideNavMenuItem href="/reports/continent-population" text="Continent Population" />
 			<SideNavMenuItem href="/reports/continent-summary" text="Continent Summary" />
 			<SideNavMenuItem href="/reports/population-area" text="Population By Area" />
+			<SideNavMenuItem href="/reports/district-population" text="State Population" />
 		</SideNavMenu>		
 		<SideNavDivider />
 		<SideNavLink text="About" on:click={() => aboutRef.openModal()} />
