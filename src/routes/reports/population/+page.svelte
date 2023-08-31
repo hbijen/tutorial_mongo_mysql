@@ -12,7 +12,7 @@
 	console.log("result ", result.length)
 </script>
 
-<h4>A simple population bar chart</h4>
+<h4>Population Bar Chart</h4>
 <BarChartSimple
 	data={result}
 	options={{

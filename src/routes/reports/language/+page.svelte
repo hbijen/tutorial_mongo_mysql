@@ -34,7 +34,7 @@
 	}
 </script>
 
-<h4>A simple language pie chart</h4>
+<h4>Language Pie Chart</h4>
 {#if countries.length > 0}
 	<Dropdown titleText="Select a Country" selectedId="0" items={countries} on:select={selected} />
 {/if}

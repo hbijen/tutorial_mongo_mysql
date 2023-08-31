@@ -68,7 +68,7 @@
 	onMount(find);
 </script>
 
-<h4>A simple radar chart</h4>
+<h4>Continent Comparison Radar chart</h4>
 <RadarChart data={result} options={{
 	title: 'Continent Comparison',
 	radar: {

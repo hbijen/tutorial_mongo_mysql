@@ -36,7 +36,7 @@
 
 	onMount(find);
 </script>
-
+<h4>Ordered Data with Horizontal Bar Chart</h4>
 <Tabs bind:selected autoWidth on:change={find}>
 	<Tab label="Countries" />
 	<Tab label="Languages" />
@@ -44,7 +44,6 @@
 		<TabContent>
 			<BarChartSimple
 				data={result1}
-				hi
 				options={{
 					title: 'Ordered by languages',
 					height: '600px',

@@ -28,7 +28,7 @@
 	onMount(find);
 </script>
 
-<h4>A simple grouped bar chart</h4>
+<h4>Continent Comparison Grouped Bar Chart</h4>
 <BarChartGrouped
 	data={result}
 	options={{
