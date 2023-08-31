@@ -36,7 +36,7 @@
 		}).then((r) => r.json())
 
 		Promise.all([a,b])
-			.then((r:any[]) => {
+			.then((r:any[][]) => {
 				console.log(r[0])
 				console.log(r[1])
 				const res0 = r[0].map((d: { [x: string]: any }) => {
@@ -49,10 +49,12 @@
 				});
 				result = res0.reduce((prev: any[], curr: any,i: number,[]) => [].concat(...prev,...curr))
 
-				const res1 = r[1].map((d: { [x: string]: any }) => {
+				const res1: any[] = r[1].map((d: { [x: string]: any }) => {
 					return { group: d._id, category: 'language_count', value: d['language_count'] || 0 }
 				});
-				result = [].concat(...result, res1)
+				if ( r[1].some(d => d['language_count'] > 0) ) {
+					result = [].concat(...result, ...res1)
+				}
 
 				
 				normalizeValue(result, "city_count")

@@ -17,10 +17,10 @@ async function summaryBasic() {
   const db = mongoClient.db("world")
 
   //FIXME 23: Find following summary of each Continent
-  // 1. Country count
-  // 2. City count
-  // 3. Total population
-  // 4. Total surface area
+  // 1. Country count (out field name 'country_count')
+  // 2. City count (out field name 'city_count')
+  // 3. Total population (out field name 'Population')
+  // 4. Total surface area (out field name 'SurfaceArea')
 
   let results = await db.collection("country_one").aggregate([
      ]).toArray()
@@ -32,6 +32,7 @@ async function summaryAdvanced() {
   const db = mongoClient.db("world")
 
   //FIXME 24: Find total unique languages spoke in each Continent
+  // set the out field name to 'language_count'
   let results = await db.collection("country_one").aggregate([
     
   ]).toArray()
