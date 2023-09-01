@@ -9,23 +9,7 @@ export async function GET(event: RequestEvent) {
     // in ‘India’ and return the district and its population
     // 1. use the field 'total_population' to store the total population
     let results = await db.collection("country_one").aggregate([
-        {
-            '$match': {
-                'Name': 'India'
-            }
-        }, {
-            '$unwind': {
-                'path': '$cities'
-            }
-        }, {
-            '$group': {
-                '_id': '$cities.District', 
-                'total_population': {
-                    '$sum': '$cities.Population'
-                }
-            }
-        }
-    ]).toArray()
+     ]).toArray()
 
 	return json(results)
 }
