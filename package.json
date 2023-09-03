@@ -3,7 +3,9 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "NODE_OPTIONS=\"--max-old-space-size=4096\" vite dev",
+		"mongo": "NODE_OPTIONS=\"--max-old-space-size=4096\" vite dev",
+		"mysql": "USE_MONGO=false NODE_OPTIONS=\"--max-old-space-size=2048\" vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "npm run test:integration && npm run test:unit",

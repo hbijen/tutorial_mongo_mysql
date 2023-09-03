@@ -13,8 +13,8 @@
 				console.log('r ', r);
 				const res = r.map((d: { [x: string]: any }) => {
 					return [
-						{ group: d._id, key: 'Avg Population', value: d['AveragePopulation'] || 0 },
-						{ group: d._id, key: 'TotalSurfaceArea', value: d['TotalSurfaceArea'] || 0}
+						{ group: d._id || d.Continent, key: 'Avg Population', value: d['AveragePopulation'] || 0 },
+						{ group: d._id || d.Continent, key: 'TotalSurfaceArea', value: d['TotalSurfaceArea'] || 0}
 					];
 				});
 				result = res.reduce((prev: any[], curr: any,i: number,[]) => [].concat(...prev,...curr))

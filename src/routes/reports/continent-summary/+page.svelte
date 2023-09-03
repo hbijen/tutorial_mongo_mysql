@@ -41,16 +41,16 @@
 				console.log(r[1])
 				const res0 = r[0].map((d: { [x: string]: any }) => {
 					return [
-						{ group: d._id, category: 'country_count', value: d['country_count'] || 0 },
-						{ group: d._id, category: 'city_count', value: d['city_count'] || 0},
-						{ group: d._id, category: 'Population', value: d['Population'] || 0},
-						{ group: d._id, category: 'SurfaceArea', value: d['SurfaceArea'] || 0},
+						{ group: d._id || d.Continent, category: 'country_count', value: d['country_count'] || 0 },
+						{ group: d._id || d.Continent, category: 'city_count', value: d['city_count'] || 0},
+						{ group: d._id || d.Continent, category: 'Population', value: d['Population'] || 0},
+						{ group: d._id || d.Continent, category: 'SurfaceArea', value: d['SurfaceArea'] || 0},
 					];
 				});
 				result = res0.reduce((prev: any[], curr: any,i: number,[]) => [].concat(...prev,...curr))
 
 				const res1: any[] = r[1].map((d: { [x: string]: any }) => {
-					return { group: d._id, category: 'language_count', value: d['language_count'] || 0 }
+					return { group: d._id || d.Continent, category: 'language_count', value: d['language_count'] || 0 }
 				});
 				if ( r[1].some(d => d['language_count'] > 0) ) {
 					result = [].concat(...result, ...res1)

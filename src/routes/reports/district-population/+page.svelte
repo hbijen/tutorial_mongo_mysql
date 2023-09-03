@@ -13,6 +13,11 @@
 	onMount(async () => {
 		const statePopulation: any[] = await fetch(`district-population`).then((d) => d.json());
 		console.log('india dataset ', statePopulation);
+		statePopulation.forEach(d => {
+			if (!d._id) {
+				d._id = d.District
+			}
+		})
 		let states = dataset.features;
 		drawMap(states, statePopulation);
 	});
@@ -38,7 +43,7 @@
 			.append('path')
 			.attr('d', path)
 			.style('fill', function (d) {
-				const st = dataset.find(data => data._id == d.properties.NAME_1)
+				const st = dataset.find(data => d.properties.NAME_1 == data._id)
 				 if (!st) {
 					console.log(`Not found for -${d.properties.NAME_1}-`)
 				 }

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { addIdField } from "$lib/utilities";
 	import { DataTable, Pagination } from "carbon-components-svelte";
 
 	export let data: any;
@@ -10,7 +11,7 @@
 		let offset = (event.detail.page-1)*event.detail.pageSize
 		fetch(`/city/${event.detail.pageSize}/${offset}`)
 		.then(r => r.json())
-		.then(r => result = r)
+		.then(r => result = addIdField(r))
 	}
 </script>
 

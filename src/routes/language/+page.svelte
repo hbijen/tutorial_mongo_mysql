@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { addIdField } from '$lib/utilities';
 	import {
 		DataTable,
 	} from 'carbon-components-svelte';
@@ -8,7 +9,7 @@
 	let countries: any[] = [];
 	console.log("data..", data)
 	$: {
-		countries = data.data;
+		countries = addIdField(data.data);
 	}
 </script>
 

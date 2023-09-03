@@ -17,6 +17,7 @@
 	} from 'carbon-components-svelte';
 	import { Add, AddAlt, SearchAdvanced, TrashCan } from 'carbon-icons-svelte';
 	import Message from '../components/Message.svelte';
+	import { addIdField } from '$lib/utilities';
 
 	export let data: any;
 	let value: string;
@@ -25,7 +26,7 @@
 	let deleted = false;
 
 	$: {
-		countries = data.data;
+		countries = addIdField(data.data);
 	}
 
 	function addCountry() {
@@ -44,7 +45,8 @@
 			.then((r) => r.json())
 			.then((r) => {
 				console.log('r: ', r);
-				countries = r;
+				countries = addIdField(r);
+				
 			});
 	}
 
@@ -62,7 +64,6 @@
 			.then((r) => r.json())
 			.then((r) => {
 				console.log('r: ', r);
-				//countries = r
 				deleted = true;
 				setTimeout(() => (deleted = false), 2500);
 				searchCountry();
@@ -90,9 +91,11 @@
 			.then((r) => r.json())
 			.then((r) => {
 				console.log('r: ', r);
-				countries = r;
+				countries = addIdField(r);
 			});
   	}
+
+
 
 	$: console.log('value: ', value);
 </script>
@@ -176,13 +179,13 @@
 >
 	<svelte:fragment slot="cell" let:row let:cell>
 		{#if cell.key === 'Name'}
-			<Link href="/country/{row.id}">{cell.value}</Link>
+			<Link href="/country/{row._id || row.Code}">{cell.value}</Link>
 		{:else if cell.key === 'delete'}
 			<div>
 				<Button
 					kind="danger-tertiary"
 					iconDescription="Delete"
-					on:click={() => remove(row.id)}
+					on:click={() => remove(row._id || row.Code)}
 					icon={TrashCan}
 				/>
 			</div>

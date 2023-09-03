@@ -25,6 +25,7 @@
 		[key: string]: any;
 	};
 	type Country = {
+		Code: string;
 		Name: string;
 		Continent: string;
 		Population: number;
@@ -36,6 +37,7 @@
 
 	function initCountryField() {
 		return {
+			Code: '',
 			Name: '',
 			Continent: '',
 			Population: null,
@@ -53,10 +55,11 @@
 			fetch(`/country/${countryId}`)
 				.then((r) => r.json())
 				.then((r) => {
-					const { Name, Continent, Population, SurfaceArea, cities, languages } = r;
-					country = { Name, Continent, Population, SurfaceArea, cities, languages };
+					const { Code, Name, Continent, Population, SurfaceArea, cities, languages } = r;
+					country = { Code, Name, Continent, Population, SurfaceArea, cities, languages };
+					if (!country.cities) country.cities = []
+					if (!country.languages) country.languages = []
 					console.log('rcountry ', country);
-					console.log('r ', r);
 				})
 				.catch((error) => {
 					console.error('Error fetching data:', error);
@@ -71,7 +74,8 @@
 
 	function addCity() {
 		if (city.Name && city.District) {
-			country.cities = [...country.cities, Object.assign({}, city)];
+			//countryCode is not required for mongo (since its a single document) but is required mysql
+			country.cities = [...country.cities, Object.assign({countryCode: country.Code}, city)];
 			city.Name = '';
 			city.District = '';
 			console.log('city ', country);
@@ -84,8 +88,8 @@
 	};
 	function addLanguage() {
 		if (language.Language && language.IsOfficial) {
-			//languages.push(Object.assign({}, language))
-			country.languages = [...country.languages, Object.assign({}, language)];
+			//countryCode is not required for mongo (since its a single document) but is required mysql
+			country.languages = [...country.languages, Object.assign({countryCode: country.Code}, language)];
 			language.Language = '';
 			language.IsOfficial = 'F';
 		}
@@ -126,6 +130,7 @@
 
 <FluidForm>
 	<div class="form-row">
+		<TextInput labelText="Country Code" placeholder="Enter Country Code" bind:value={country.Code} />
 		<TextInput labelText="Name" placeholder="Enter Country Name" bind:value={country.Name} />
 		<TextInput labelText="Continent" placeholder="Enter Continent" bind:value={country.Continent} />
 		<Button

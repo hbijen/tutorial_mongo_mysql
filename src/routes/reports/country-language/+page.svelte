@@ -24,7 +24,10 @@
 					});
 				} else if (selected == 1) {
 					result2 = r.map((d: { [x: string]: any }) => {
-						d['group'] = d._id;
+						d['group'] = d._id || d.Language;
+						if (!d._id) {
+							d._id = d.Language;
+						}
 						return d;
 					});
 				}

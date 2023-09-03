@@ -1,8 +1,10 @@
 import mongoClient from "$lib/db/mongo";
+import { getMySQlConnection } from "$lib/db/mysql";
+import { isMongo } from "$lib/db/usedb";
 
 export async function load() {
 
-  return mongoLoad()
+  return isMongo? mongoLoad() : mysqlLoad()
 
 }
 
@@ -25,3 +27,20 @@ async function mongoLoad() {
   }
 }
 
+async function mysqlLoad() {
+  try {
+    const mysqlconn = await getMySQlConnection()
+
+    // FIXME 17 mysql: find all the countries with following conditions
+    // 1. return only the name and Code
+    // 2. sort it by name ascending
+    const [rows, fields] = await mysqlconn.query(`
+    <SQL QUERY HERE>
+    `)
+
+    return { data: rows }
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}

@@ -12,7 +12,7 @@
 	};
 
 	let countries = (data.data || []).map((d: any) => {
-		return { id: d._id, text: d.Name };
+		return { id: d._id || d.Code, text: d.Name };
 	});
 
 	function selected(evt: any) {

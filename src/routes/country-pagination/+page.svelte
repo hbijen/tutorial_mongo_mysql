@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { addIdField } from "$lib/utilities";
 	import { DataTable, Pagination } from "carbon-components-svelte";
 
 	export let data: any;
@@ -7,7 +8,7 @@
 	let sortKey = "";
 	let sortDirection = "";
 
-	var result = data.data;
+	var result = addIdField(data.data);
 
 	function handlePagination() {
 		let offset = (page-1)*pageSize
@@ -19,7 +20,7 @@
 		.then(r => r.json())
 		.then(r => {
 			console.log('r', r)
-			result = r
+			result = addIdField(r)
 		})
 	}
 

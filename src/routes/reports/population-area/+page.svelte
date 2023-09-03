@@ -21,6 +21,10 @@
 			.then((r) => r.json())
 			.then((r) => {
 				console.log('r ', r);
+				r.forEach((d: any) => {
+					d.group = 'country';
+				});
+
 				result = r;
 			})
 			.catch((error) => {
@@ -112,19 +116,19 @@
 		</TabContent>
 	</svelte:fragment>
 </Tabs>
-	<Slider
-		labelText="Max Population"
-		bind:value={maxPop}
-		max={1277559000}
-		fullWidth
-		step={2000000}
-		on:change={find}
-	/>
-	<Slider
-		labelText="Max SurfaceArea"
-		bind:value={maxArea}
-		max={17075500}
-		fullWidth
-		step={2000000}
-		on:change={find}
-	/>
+<Slider
+	labelText="Max Population"
+	bind:value={maxPop}
+	max={1277559000}
+	fullWidth
+	step={2000000}
+	on:change={find}
+/>
+<Slider
+	labelText="Max SurfaceArea"
+	bind:value={maxArea}
+	max={17075500}
+	fullWidth
+	step={2000000}
+	on:change={find}
+/>

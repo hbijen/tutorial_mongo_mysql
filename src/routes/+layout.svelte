@@ -40,7 +40,7 @@
 </script>
 
 <svelte:head>
-	<title>Demo</title>
+	<title>Tutorial</title>
 </svelte:head>
 
 <Header bind:isSideNavOpen >
@@ -62,9 +62,9 @@
 				<img src={mongoLogo} alt="MongoDB" />
 			</a>
 
-			<!-- <a href="https://www.mysql.com/">
+			<a href="https://www.mysql.com/">
 				<img src={mysqlLogo} alt="MySQL" />
-			</a> -->
+			</a>
 
 		</div>
 	</div>
@@ -122,5 +122,9 @@
 
 	a:hover {
 		color: var(--color-theme-1);
+	}
+
+	div a {
+		padding-right: 10px;
 	}
 </style>
