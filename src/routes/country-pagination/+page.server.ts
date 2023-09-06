@@ -26,6 +26,7 @@ async function mongoLoad() {
     }).toArray()
 
     //FIXME 3: return the total count of the country collection
+    //Verify Fix: On Left Navigation click on Country > Paginated
     var total_count = 100; 
     let result = await db.collection("country_one").aggregate([
     ]).toArray()
@@ -53,6 +54,7 @@ async function mysqlLoad() {
 
     //FIXME 3 mysql: return the total count of the country collection
     // make sure to use the alias name of the count to 'total_count'
+    //Verify Fix: On Left Navigation click on Country > Paginated
     var total_count = 100; 
     let result = await mysqlconn
       .query("<SQL QUERY HERE>")

@@ -22,6 +22,9 @@ export async function POST(event: RequestEvent) {
 	// FIXME 11: search for documents using the country name that startswith
 	// use $regex. to match starting letters 'abc', regex will look like '^abc' 
 	// Note: the log output and figure out which attributes to be used
+	//Verify Fix:
+	//1. On Left Navigation click on Country > List
+	//2. Enter text in search input field and press Enter key
 	let results = await db.collection("country_one")
 		.find().limit(10).toArray()
 
@@ -37,11 +40,14 @@ async function mysql_POST(event: RequestEvent) {
 
 	const mysqlconn = await getMySQlConnection()
 
-	// FIXME 10 mysql: search for document using the country name $eq ( searchText contains input text)
-	// FIXME 11 mysql: search for documents using the country name that startswith
+	// FIXME 10 mysql: search for records using the country name $eq ( searchText contains input text)
+	// FIXME 11 mysql: search for records using the country name that startswith
 	// use $regex. to match starting letters 'abc', regex will look like '^abc' 
 	// Note: the log output and figure out which attributes to be used
 	// and include the column 'Code' as well in selection
+	//Verify Fix:
+	//1. On Left Navigation click on Country > List
+	//2. Enter text in search input field and press Enter key
 	const query = `
 	<SQL QUERY HERE>
 		`

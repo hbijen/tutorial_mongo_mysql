@@ -16,7 +16,9 @@ export async function GET(request: RequestEvent) {
 async function mongo_countriesByLanguages() {
   const db = mongoClient.db("world")
   //FIXME 20: get the count of languages of each country, sort it ascending order
-  // and return all the documents greater than 3
+  // and return all the documents greater than 6
+  //Verify Fix:
+  //1. On Left Navigation click on Reports > 'Top Country Language'
   let results = await db.collection("country_one").aggregate([
   ]).toArray()
 
@@ -29,7 +31,9 @@ async function mongo_languagesByCountries() {
   //FIXME 21: get all the language records where 
   // 1. a language spoken in atleast 10 countries 
   // 2. Sort the records by number of countries in ascending order
-
+  //Verify Fix:
+  //1. On Left Navigation click on Reports > 'Top Country Language'
+  //2. Click on 'Languages' Tab
   let results = await db.collection("country_one").aggregate(
     [
     ]
@@ -46,6 +50,8 @@ async function mysql_countriesByLanguages() {
   //FIXME 20 mysql: get the count of languages of each country, sort it ascending order
   // and return all the documents greater than 6
   // note: use 'value' as alias name of the count
+  //Verify Fix:
+  //1. On Left Navigation click on Reports > 'Top Country Language'
   const [results] = await mysqlconn.query(`
   <SQL QUERY HERE>
   `)
@@ -60,6 +66,9 @@ async function mysql_languagesByCountries() {
   // 1. a language spoken in atleast 10 countries 
   // 2. Sort the records by number of countries in ascending order
   // note: use 'value' as alias name of the count
+  //Verify Fix:
+  //1. On Left Navigation click on Reports > 'Top Country Language'
+  //2. Click on 'Languages' Tab
   const [results] = await mysqlconn.query(`
   <SQL QUERY HERE>
   `)

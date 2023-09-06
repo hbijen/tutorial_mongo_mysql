@@ -15,7 +15,11 @@ async function mongo_PUT(event: RequestEvent) {
 	let body = await event.request.json()
 	console.log("add data ", body)
 
-	// FIXME 12: insert a new country document
+	// FIXME 13: insert a new country document
+	//Verify Fix:
+	//1. On Left Navigation click on Country > List
+	//2. Click on Add button
+	//3. Click on Save Button
 	let result = await db.collection("country_one").insertOne({})
 	return json(result)
 }
@@ -30,7 +34,12 @@ async function mysql_PUT(event: RequestEvent) {
 		// we start a transaction since there are multiple inserts and if one of them fails
 		mysqlconn.beginTransaction()
 
-		// FIXME 12 mysql: insert a new country record, alongwith its cities and languages
+		// FIXME 13 mysql: insert a new country record, alongwith its cities and languages
+		//Verify Fix:
+		//1. On Left Navigation click on Country > List
+		//2. Click on Add button
+		//3. Click on Save Button
+
 		// insert country query
 		const insertCountry = `
 			<SQL QUERY HERE>

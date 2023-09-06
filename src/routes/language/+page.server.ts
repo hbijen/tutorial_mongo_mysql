@@ -14,6 +14,8 @@ async function mongoLoad() {
     const db = mongoClient.db("world")
 
     //FIXME 19: Official Language of each country sorted by Continent and Name
+    //Verify Fix: On Left Navigation click on Language > List
+
     let results = await db.collection("country_one").aggregate([
 
     ]).toArray()
@@ -30,6 +32,7 @@ async function mysqlLoad() {
     const mysqlconn = await getMySQlConnection()
 
     //FIXME 19 mysql: Official Language of each country sorted by Continent and Name
+    //Verify Fix: On Left Navigation click on Language > List
     const [rows] = await mysqlconn.query(`
     <SQL QUERY HERE>
     `)

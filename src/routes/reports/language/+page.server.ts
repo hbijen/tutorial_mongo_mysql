@@ -15,6 +15,9 @@ async function mongoLoad() {
     // FIXME 17: find all the countries with following conditions
     // 1. return only the name and id
     // 2. sort it by name ascending
+    //Verify Fix:
+    //1. On Left Navigation click on Reports > Language Pie
+    //2. Country Name dropdwn should be populated
     let results = await db.collection("country_one")
       .find({}).limit(1).toArray()
 
@@ -34,8 +37,11 @@ async function mysqlLoad() {
     // FIXME 17 mysql: find all the countries with following conditions
     // 1. return only the name and Code
     // 2. sort it by name ascending
+    //Verify Fix:
+    //1. On Left Navigation click on Reports > Language Pie
+    //2. Country Name dropdwn should be populated
     const [rows, fields] = await mysqlconn.query(`
-    <SQL QUERY HERE>
+    SELECT 1 FROM DUAL
     `)
 
     return { data: rows }

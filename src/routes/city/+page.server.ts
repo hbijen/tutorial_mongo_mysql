@@ -14,6 +14,7 @@ async function mongoLoad() {
     const db = mongoClient.db("world")
 
     //FIXME 6: get the first 10 cities
+    //Verify Fix: On Left Navigation click on City > Paginated
     let results = await db.collection("country_one").aggregate([
 
     ]).toArray()
@@ -21,6 +22,7 @@ async function mongoLoad() {
     console.log("results ", results)
 
     //FIXME 7: return the total count of all the cities
+    //Verify Fix: On Left Navigation click on City > Paginated
     var total_count = 100;
     let count_result = await db.collection("country_one").aggregate([
 
@@ -44,6 +46,7 @@ async function mysqlLoad() {
   try {
     //FIXME 6 mysql: get the first 10 cities
     // note make sure to use te alias name 'Country' for the country name    
+    //Verify Fix: On Left Navigation click on City > Paginated
     const [rows, fields] = await mysqlconn
       .query(`
       <SQL QUERY HERE>
@@ -51,9 +54,10 @@ async function mysqlLoad() {
     console.log('results, ', rows)
 
     //FIXME 7 mysql: return the total count of all the cities
+    //Verify Fix: On Left Navigation click on City > Paginated
     var total_count = 100;
     let result = await mysqlconn
-      .query("<SQL QUERY HERE>")
+      .query("SELECT 1 FROM DUAL") //Fix this query
       .then(function ([rows, fields]) {
         return rows;
       });

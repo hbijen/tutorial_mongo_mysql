@@ -26,8 +26,11 @@ async function mongo_GET(event: RequestEvent) {
 		return new Response(null, { status: 404 })
 	}
 
-	// FIXME 13: find a document using the id
+	// FIXME 12: find a document using the id
 	// NOTE do not forget to use new ObjectId(id) while matching the document
+	//Verify Fix:
+	//1. On Left Navigation click on Country > List
+	//2. Click on Country Name Link
 	let result = await db.collection("country_one")
 		.findOne({})
 
@@ -44,9 +47,11 @@ async function mysql_GET(event: RequestEvent) {
 		return new Response(null, { status: 404 })
 	}
 
-	// FIXME 13 mysql: find a country record using the country code, 
-	// fetch city and language using the country code
+	// FIXME 12 mysql: find a country record using the country code.
+	// Also fetch city and language using the country code
 	// NOTE make sure to use a different alias for city.Name as 'cityName' since it will conflict with country.Name
+	//1. On Left Navigation click on Country > List
+	//2. Click on Country Name Link
 	const query = `
 	<SQL QUERY HERE>
 	`
@@ -57,18 +62,18 @@ async function mysql_GET(event: RequestEvent) {
 	console.log('sql result ', rows)
 
 	// get all the cities for the country code
-	const cityQuery = `SELECT c.id, c.CountryCode, c.Name, c.District
-	FROM city c 
-	where c.CountryCode = '${countryCode}'`
+	const cityQuery = `
+	SELECT 1 FROM DUAL
+	`
 	const [cityrows] = await mysqlconn.query(cityQuery)
 
 	console.log('cityrows: ', cityrows)
 	countryData.cities = cityrows
 
 	// get all the cities for the country code
-	const languageQuery = `SELECT c.CountryCode, c.Language, c.IsOfficial
-	FROM countrylanguage c
-	where c.CountryCode = '${countryCode}'`
+	const languageQuery = `
+	SELECT 1 FROM DUAL
+	`
 	const [languagerows] = await mysqlconn.query(languageQuery)
 
 	console.log('languagerows: ', languagerows)
@@ -93,6 +98,10 @@ async function mongo_UPDATE(event: RequestEvent) {
 
 	// FIXME 14: Update the document identified by countryId
 	// NOTE do not forget to use new ObjectId(id) while matching the document
+	//Verify Fix:
+	//1. On Left Navigation click on Country > List
+	//2. Click on Country Name Link
+	//3. Click on Save Button
 	let result = await db.collection("country_one")
 		.updateOne({}, {})
 	return json(result)
@@ -112,8 +121,11 @@ async function mysql_UPDATE(event: RequestEvent) {
 		return new Response(null, { status: 404 })
 	}
 
-	// FIXME 14 mysql: Update the document identified by countryCode
-
+	// FIXME 14 mysql: Update the country record identified by countryCode
+	//Verify Fix:
+	//1. On Left Navigation click on Country > List
+	//2. Click on Country Name Link
+	//3. Click on Save Button
 	try {
 		// we start a transaction since there are multiple updates and if one of them fails
 		mysqlconn.beginTransaction()
@@ -188,6 +200,9 @@ async function mongo_DELETE(event: RequestEvent) {
 
 	// FIXME 15: delete a document using the id
 	// NOTE do not forget to use new ObjectId(id) while matching the document
+	//Verify Fix:
+	//1. On Left Navigation click on Country > List
+	//2. Click on Trash Bin icon
 	let result = await db.collection("country_one")
 		.deleteOne({})
 
@@ -208,6 +223,9 @@ async function mysql_DELETE(event: RequestEvent) {
 
 		// FIXME 15 mysql: delete all records of the country have code = input countryCode
 		// note we need to delete the child records first countrylanguage and city
+		//Verify Fix:
+		//1. On Left Navigation click on Country > List
+		//2. Click on Trash Bin icon
 
 		// delete all records in countrylanguage matching the country code
 		const [result1] = await mysqlconn.execute('<SQL QUERY HERE>', [countryCode])

@@ -24,6 +24,7 @@ const projection = {
     const db = mongoClient.db("world")
 
     //FIXME 8: Fix the pagination for the city
+    //Verify Fix: On Left Navigation click on City > Paginated
     let results = await db.collection("country_one").aggregate([
 
     ]).toArray()
@@ -40,6 +41,7 @@ async function mysql_GET(request: RequestEvent) {
   const mysqlconn = await getMySQlConnection()
 
   //FIXME 8 mysql: Fix the pagination for the city
+  //Verify Fix: On Left Navigation click on City > Paginated
   const [rows, fields] = await mysqlconn
   .query(`
   <SQL QUERY HERE>

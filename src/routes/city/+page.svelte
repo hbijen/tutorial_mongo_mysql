@@ -4,7 +4,7 @@
 
 	export let data: any;
 
-	var result = data.data;
+	var result = addIdField(data.data);
 
 	function handlePagination(event: any) {
 		console.log(event.detail)

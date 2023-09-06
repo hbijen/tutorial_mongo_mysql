@@ -17,6 +17,9 @@ async function mongo_POST(event: RequestEvent) {
   //FIXME 25: For each country return following data (include country name)
   // 1. link max population and max area parameter to filter out countries 
   //FIXME 26: return the GNP value as well in the projection
+  //Verify Fix:
+  //1. On Left Navigation click on Reports > 'Population by Area'
+  //2. Click on the '3 Dimension Data' Tab for the second fix
   let results = await db.collection("country_one").aggregate( [
     {
       $project: {
@@ -40,6 +43,9 @@ async function mysql_POST(event: RequestEvent) {
   //FIXME 25 mysql: For each country return following data (include country name)
   // 1. link max population and max area parameter to filter out countries 
   //FIXME 26 mysql: return the GNP value as well in the projection
+  //Verify Fix:
+  //1. On Left Navigation click on Reports > 'Population by Area'
+  //2. Click on the '3 Dimension Data' Tab for the second fix
   let [results] = await mysqlconn.query(`
     <SQL QUERY HERE>
   `)

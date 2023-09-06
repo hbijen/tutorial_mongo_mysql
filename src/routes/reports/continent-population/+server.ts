@@ -12,6 +12,8 @@ async function mongo_GET(request: RequestEvent) {
   //FIXME 22: For each Continent find
   // 1. Average population ( use output field as AveragePopulation )
   // 2. Total SurfaceArea ( use output field as TotalSurfaceArea )
+  //Verify Fix:
+  //1. On Left Navigation click on Reports > 'Continent Population'
   let results = await db.collection("country_one").aggregate([
   ]).toArray()
 
@@ -23,6 +25,8 @@ async function mysql_GET(request: RequestEvent) {
   //FIXME 22 mysql: For each Continent find
   // 1. Average population ( use output field as AveragePopulation )
   // 2. Total SurfaceArea ( use output field as TotalSurfaceArea )
+  //Verify Fix:
+  //1. On Left Navigation click on Reports > 'Continent Population'
   const [results] = await mysqlconn.query(`
   <SQL QUERY HERE>
     `)

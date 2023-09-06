@@ -31,6 +31,7 @@ async function mongo_POST(event: RequestEvent) {
 
     //FIXME 4 Fix the pagination for the country, use find() or aggregate
     //FIXME 5 Adding sorting based on the header click
+    //Verify Fix: On Left Navigation click on Country > Paginated
     let results = await db.collection("country_one").find({}, 
       {
     }).toArray()
@@ -52,6 +53,7 @@ async function mysql_POST(event: RequestEvent) {
 
   //FIXME 4 mysql: Fix the pagination for the country, use find() or aggregate
   //FIXME 5 mysql: Adding sorting based on the header click
+  //Verify Fix: On Left Navigation click on Country > Paginated
   let [rows, fields] = await mysqlconn.query(`
   <SQL QUERY HERE>
     `)

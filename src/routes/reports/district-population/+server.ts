@@ -14,6 +14,8 @@ async function mongo_GET(event: RequestEvent) {
     //FIXME 27: Calculate the total population of all the cities in a district 
     // in ‘India’ and return the district and its population
     // 1. use the field 'total_population' to store the total population
+    //Verify Fix:
+    //1. On Left Navigation click on Reports > 'State Population'
     let results = await db.collection("country_one").aggregate([
      ]).toArray()
 
@@ -27,6 +29,8 @@ async function mysql_GET(event: RequestEvent) {
     //FIXME 27 mysql: Calculate the total population of all the cities in a district 
     // in ‘India’ and return the district and its population
     // 1. use the field 'total_population' to store the total population
+    //Verify Fix:
+    //1. On Left Navigation click on Reports > 'State Population'
     const [results] = await mysqlconn.query(`
     <SQL QUERY HERE>
     `)

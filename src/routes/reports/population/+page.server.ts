@@ -15,7 +15,7 @@ async function mongoLoad() {
     //FIXME 9: get first 20 country records 
     // sorted by population in descending order
     // Fetch only required fields
-
+    //Verify Fix: On Left Navigation click on Reports > Population Bar
     let results = await db.collection("country_one").aggregate([
 
     ]).toArray()
@@ -34,6 +34,7 @@ async function mysqlLoad() {
     //FIXME 9 mysql: get first 20 country records 
     // sorted by population in descending order
     // Fetch only required fields
+    //Verify Fix: On Left Navigation click on Reports > Population Bar
     const [rows, fields] = await mysqlconn.query(`
     <SQL QUERY HERE>
     `)

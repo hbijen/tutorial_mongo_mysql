@@ -23,7 +23,10 @@ async function mongo_POST(event: RequestEvent) {
 	// 4. find countries will spoken languages as input
 	// if more than one input value then all the filters must be applied together
 	// Note: the log output and figure out which attributes to be used
-
+	//Verify Fix:
+	//1. On Left Navigation click on Country > List
+	//2. Click on 'Advanced Search' link
+	//3. enter data & click on 'Search' Button
 	let filter: {[key:string]: any} = {}
 	// example for comparison of density a computed field is given below!
 	if (density) {
@@ -55,7 +58,10 @@ async function mysql_POST(event: RequestEvent) {
 	// 4. find countries will spoken languages as input
 	// if more than one input value then all the filters must be applied together
 	// Note: the log output and figure out which attributes to be used
-
+	//Verify Fix:
+	//1. On Left Navigation click on Country > List
+	//2. Click on 'Advanced Search' link
+	//3. enter data & click on 'Search' Button
 	let query = `
 	<SQL QUERY HERE>
 	`

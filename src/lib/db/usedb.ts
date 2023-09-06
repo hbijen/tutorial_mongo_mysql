@@ -1,3 +1,3 @@
-import { USE_MONGO } from "$env/static/private";
+import { USE_MYSQL } from "$env/static/private";
 
-export const isMongo = USE_MONGO == "true"
+export const isMongo = (USE_MYSQL != "true")

@@ -38,7 +38,8 @@ async function mongo_summaryBasic() {
   // 2. City count (out field name 'city_count')
   // 3. Total population (out field name 'Population')
   // 4. Total surface area (out field name 'SurfaceArea')
-
+  //Verify Fix:
+  //1. On Left Navigation click on Reports > 'Continent Summary'
   let results = await db.collection("country_one").aggregate([
      ]).toArray()
 
@@ -50,6 +51,9 @@ async function mongo_summaryAdvanced() {
 
   //FIXME 24: Find total unique languages spoke in each Continent
   // set the out field name to 'language_count'
+  //Verify Fix:
+  //1. On Left Navigation click on Reports > 'Continent Summary'
+  //2. A 5th dimension is displayed
   let results = await db.collection("country_one").aggregate([
     
   ]).toArray()
@@ -64,7 +68,8 @@ async function mysql_summaryBasic() {
   // 2. City count (aliased as 'city_count')
   // 3. Total population (aliased as 'Population')
   // 4. Total surface area (aliased as 'SurfaceArea')
-
+  //Verify Fix:
+  //1. On Left Navigation click on Reports > 'Continent Summary'
   let [results] = await mysqlconn.query(`
   <SQL QUERY HERE>
   `)
@@ -77,6 +82,9 @@ async function mysql_summaryAdvanced() {
   const mysqlconn = await getMySQlConnection()
   //FIXME 24 mysql: Find total unique languages spoke in each Continent
   // set the alias as 'language_count'
+  //Verify Fix:
+  //1. On Left Navigation click on Reports > 'Continent Summary'
+  //2. A 5th dimension is displayed
   let [results] = await mysqlconn.query(`
   <SQL QUERY HERE>
   `)
