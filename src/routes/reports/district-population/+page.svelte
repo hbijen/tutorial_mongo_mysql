@@ -1,5 +1,5 @@
 <script lang="ts">
-	import dataset from '$lib/geojson/India.json';
+	import dataset from '$lib/geojson/India-simplified.json';
 	import { onMount } from 'svelte';
 	import { geoPath, geoMercator } from 'd3-geo';
 	import * as d3 from 'd3';
@@ -43,16 +43,16 @@
 			.append('path')
 			.attr('d', path)
 			.style('fill', function (d) {
-				const st = dataset.find(data => d.properties.NAME_1 == data._id)
+				const st = dataset.find(data => d.properties.ST_NM == data._id || d.properties.ST_NM_1 == data._id)
 				 if (!st) {
-					console.log(`Not found for -${d.properties.NAME_1}-`)
+					console.log(`Not found for -${d.properties.ST_NM}-`)
 				 }
 				return st? colorScale(st.total_population): '#fefefe';
 			})
 			.append('title')
 			.text(function (d) {
-				const st = dataset.find(data => data._id == d.properties.NAME_1)
-				return `State : ${d.properties.NAME_1} \n Population : ${st?.total_population}`;
+				const st = dataset.find(data => data._id == d.properties.ST_NM || d.properties.ST_NM_1 == data._id)
+				return `State : ${d.properties.ST_NM} \n Population : ${st?.total_population}`;
 			});
 	}
 
