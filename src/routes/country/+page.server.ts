@@ -1,6 +1,7 @@
 import mongoClient from "$lib/db/mongo";
 import { getMySQlConnection } from "$lib/db/mysql";
 import { isMongo } from "$lib/db/usedb";
+import { serialize } from "$lib/utilities";
 
 export async function load() {
 
@@ -16,8 +17,8 @@ async function mongoLoad() {
     //FIXME 2: fetch only the fields that are displayed on the UI (projection)
     //Verify Fix: On Left Navigation click on Country > List
     let results = await db.collection("country_one").find({}).toArray()
-
-    return { data: results }
+    console.log(results)
+    return { data: serialize(results) }
   } catch (error) {
     console.log(error);
     return error;

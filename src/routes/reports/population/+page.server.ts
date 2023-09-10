@@ -1,6 +1,7 @@
 import  mongoClient from "$lib/db/mongo";
 import { getMySQlConnection } from "$lib/db/mysql";
 import { isMongo } from "$lib/db/usedb";
+import { serialize } from "$lib/utilities";
 
 export async function load() {
 
@@ -20,7 +21,7 @@ async function mongoLoad() {
 
     ]).toArray()
 
-    return {data: JSON.parse(JSON.stringify(results))}
+    return {data: serialize(results)}
   } catch (error) {
     console.log(error);
     return error;

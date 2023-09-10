@@ -1,6 +1,7 @@
 import mongoClient from "$lib/db/mongo";
 import { getMySQlConnection } from "$lib/db/mysql";
 import { isMongo } from "$lib/db/usedb";
+import { serialize } from "$lib/utilities";
 import { ObjectId } from "mongodb";
 
 export async function load() {
@@ -31,7 +32,7 @@ async function mongoLoad() {
     total_count = count_result[0].city_count
     console.log("aggregate result ", count_result)
 
-    return { data: results, total_count: total_count }
+    return { data: serialize(results), total_count: total_count }
   } catch (error) {
     console.log(error);
     return error;

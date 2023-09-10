@@ -1,6 +1,7 @@
 import  mongoClient from "$lib/db/mongo";
 import { getMySQlConnection } from "$lib/db/mysql";
 import { isMongo } from "$lib/db/usedb";
+import { serialize } from "$lib/utilities";
 
 
 const projection = {
@@ -34,7 +35,7 @@ async function mongoLoad() {
     total_count = result[0].country_count
     console.log("aggregate result ", result)
 
-    return {data: results, total_count: total_count}
+    return {data: serialize(results), total_count: total_count}
   } catch (error) {
     console.log(error);
     return error;

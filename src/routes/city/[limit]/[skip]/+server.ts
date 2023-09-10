@@ -1,15 +1,7 @@
 import { json, type RequestEvent } from "@sveltejs/kit";
 import  mongoClient from "$lib/db/mongo";
-import { ObjectId } from "mongodb";
 import { isMongo } from "$lib/db/usedb";
 import { getMySQlConnection } from "$lib/db/mysql";
-
-const projection = {
-    Name: 1,
-    Continent: 1,
-    Population: 1,
-    SurfaceArea: 1
-  }
 
   export async function GET(request: RequestEvent) {
     return isMongo? mongo_GET(request): mysql_GET(request)
