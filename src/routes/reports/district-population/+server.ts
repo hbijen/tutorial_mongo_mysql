@@ -32,7 +32,7 @@ async function mysql_GET(event: RequestEvent) {
     //Verify Fix:
     //1. On Left Navigation click on Reports > 'State Population'
     const [results] = await mysqlconn.query(`
-    <SQL QUERY HERE>
+    SELECT 1 FROM DUAL
     `)
     console.log('results: ', results)
 	return json(results)
