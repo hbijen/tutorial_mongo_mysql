@@ -86,7 +86,7 @@ async function mysql_summaryAdvanced() {
   //1. On Left Navigation click on Reports > 'Continent Summary'
   //2. A 5th dimension is displayed
   let [results] = await mysqlconn.query(`
-  <SQL QUERY HERE>
+  SELECT 1 FROM DUAL
   `)
 
   console.log('results ', results)
